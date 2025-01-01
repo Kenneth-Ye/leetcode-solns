@@ -4,7 +4,7 @@ class Solution:
         l, r = 0, 0
         seen = set()
         maxSeen = 0
-        while (r <= len(s) - 1):
+        while (r < len(s)):
             if (s[r] not in seen):
                 seen.add(s[r])
                 maxSeen = max(maxSeen, r - l + 1)
