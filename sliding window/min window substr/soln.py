@@ -14,10 +14,7 @@ class Solution:
         minSub = s
         solnFound = False
         l, r = 0, 0
-        if s[r] in perm: perm[s[r]] -= 1
-        if is_feasible(perm): return s[0]
-        while (r < len(s) - 1 and l <= r):
-            r += 1
+        while (r < len(s) and l <= r):
             if s[r] in perm: perm[s[r]] -= 1
             while (is_feasible(perm)):
                 if len(s[l:r+1]) <= len(minSub):
@@ -25,6 +22,6 @@ class Solution:
                     solnFound = True
                 if s[l] in perm: perm[s[l]] += 1
                 l += 1
+            r += 1
         if solnFound: return minSub
         else: return ""
-        
